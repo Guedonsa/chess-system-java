@@ -97,17 +97,17 @@ public class King extends ChessPiece
 			}
 			
 			// #specialmove castling queenside rook
-				Position posR2 = new Position(position.getRow(), position.getColumn() - 4);
-				if(testRookCastling(posR2))
+			Position posR2 = new Position(position.getRow(), position.getColumn() - 4);
+			if(testRookCastling(posR2))
+			{
+				Position p1 = new Position(position.getRow(), position.getColumn() - 1);
+				Position p2 = new Position(position.getRow(), position.getColumn() - 2);
+				Position p3 = new Position(position.getRow(), position.getColumn() - 3);
+				if(getBoard().piece(p1) == null && getBoard().piece(p2) == null && getBoard().piece(p3) == null)
 				{
-					Position p1 = new Position(position.getRow(), position.getColumn() - 1);
-					Position p2 = new Position(position.getRow(), position.getColumn() - 2);
-					Position p3 = new Position(position.getRow(), position.getColumn() - 3);
-					if(getBoard().piece(p1) == null && getBoard().piece(p2) == null && getBoard().piece(p3) == null)
-					{
-						mat[position.getRow()][position.getColumn() - 2] = true;
-					}
+					mat[position.getRow()][position.getColumn() - 2] = true;
 				}
+			}
 		}
 		
 		return mat;
